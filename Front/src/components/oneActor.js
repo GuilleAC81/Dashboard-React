@@ -1,51 +1,49 @@
 import React, {Fragment, Component} from 'react';
-import MovieList from './MovieList';
-import MovieHeader from './MovieHeader';
+import ActorsList from './ActorsList';
+import ActorsHeader from './ActorsHeader';
 
-
-class Movie extends Component{
+class oneActor extends Component{
 	
     constructor(){
         super()
         this.state ={
-        moviesList : [ ],
+        actorsList : [ ]
         }
     };
 
 	componentDidMount(){
-	
-		fetch('/api/movies')
+        let id = this.props.params.id
+		fetch('/api/Actors')
         .then(respuesta =>{
         return respuesta.json()
         })
-        .then(movies =>{
-        this.setState({moviesList: movies.data})
+        .then(actors =>{
+			let actor = actors.data.filter(function(oneActors){
+			return oneActors.id  === id})
+			this.setState({actorsList: actor})
         })
         .catch(error => console.log(error))
         }
-		
+	
 	render(){
-		
 		return(
 			<Fragment>
 						{/*<!-- PRODUCTS LIST -->*/}
-						<h1 className="h3 mb-2 text-gray-800">All the movies in the Database</h1>
+						<h1 className="h3 mb-2 text-gray-800">All the actors in the Database</h1>
 						
 						{/*<!-- DataTales Example -->*/}
 						<div className="card shadow mb-4">
 							<div className="card-body">
 								<div className="table-responsive">
 									<table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
-										<thead>
-											<MovieHeader/>
+										<thead>											
+											<ActorsHeader/>											
 										</thead>
-										<tfoot>
-											<MovieHeader/>
-										</tfoot>
+										
 										<tbody>
 										{
-											this.state.moviesList.map((item, i) => {
-												return <MovieList {...item} key = {`item-${i}`}/>
+											this.state.actorsList.map((item, i) => {
+												return <ActorsList {...item} key = {`item-${i}`}/>
 												})
 										}
 										</tbody>
@@ -58,4 +56,4 @@ class Movie extends Component{
 	}
     
 }
-export default Movie;
+export default oneActor;

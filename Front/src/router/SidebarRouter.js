@@ -6,21 +6,31 @@ import ContentRowMovies from '../components/ContentRowMovies';
 import ContentWrapper from '../components/ContentWrapper';
 import NotFound from '../components/NotFound';
 import Actors from '../components/Actors';
-import { Route, Switch } from 'react-router-dom';
+import oneActor from '../components/oneActor';
+import oneMovie from '../components/oneMovie'
+import { Route, Switch, useParams } from 'react-router-dom';
+
+const AuxRouteMovie = () =>  <oneMovie params={useParams()}/>
 
 function SidebarRouter(){
+    // const AuxRouteMovie = () => {
+    //     <oneMovie params={useParams()}/>
+    // };
+    // const AuxRouteActor = () => {
+    //     <oneActor params={useParams()} />
+    // }
     return(
         <React.Fragment>         
             <Switch>
-                <Route path="/" exact={true}>
+                <Route path="/" exact>
                     <ContentWrapper/>
                 </Route>
 
-                <Route path="/last" exact={true}>
+                <Route path="/last" exact>
                     <LastMovieInDb/>
                 </Route>
 
-                <Route path="/genres" exact={true}>
+                <Route path="/genres" exact>
                     <GenresInDb/>
                 </Route>
 
@@ -28,11 +38,19 @@ function SidebarRouter(){
                     <ContentRowMovies/>
                 </Route>
 
-                <Route path="/movie/" exact={true}>
+                <Route path="/movie/" exact>
                     <Movie />
                 </Route>
 
-                <Route path="/actors/" exact={true}>
+                <Route path="/movie/:id" exact >
+                    <AuxRouteMovie />
+                </Route>
+
+                <Route path="/actors/" exact>
+                    <Actors />
+                </Route>
+
+                <Route path="/actors/:id" exact >
                     <Actors />
                 </Route>
 

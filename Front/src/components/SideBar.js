@@ -20,7 +20,7 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
-                    <Link to="/" exact={true} className="nav-link">
+                    <Link to="/" exact="true" className="nav-link">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard - DH movies</span>
                     </Link>
@@ -34,7 +34,7 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <Link to="/data" exact={true} className="nav-link">
+                    <Link to="/data" exact="true" className="nav-link">
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Statistics</span>
                     </Link>
@@ -43,7 +43,7 @@ function SideBar(){
                 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <Link to="/genres" exact={true} className="nav-link collapsed">
+                    <Link to="/genres" exact="true" className="nav-link collapsed">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Genres</span>
                         {/* <i className="fas fa-fw fa-folder"></i> */}
@@ -52,7 +52,7 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link to="/last" exact={true} className="nav-link">
+                    <Link to="/last" exact="true" className="nav-link">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Last movie in database</span>
                     </Link>
@@ -60,14 +60,14 @@ function SideBar(){
                 </li>
 
                 <li className="nav-item">
-                    <Link to="/movie" exact={true} className="nav-link">
+                    <Link to="/movie" exact="true" className="nav-link">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Movies</span>
                     </Link>
                     {/* "fas fa-fw fa-chart-area" */}
                 </li>
                 <li className="nav-item">
-                    <Link to="/actors" exact={true} className="nav-link">
+                    <Link to="/actors" exact="true" className="nav-link">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Actors</span>
                     </Link>
@@ -76,14 +76,14 @@ function SideBar(){
 
 
                 {/* <li className="nav-item">
-                    <Link to="/movie/1/likes/10" exact={true} className="nav-link">
+                    <Link to="/movie/1/likes/10" exact="true" className="nav-link">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Movie 1</span>
                     </Link>
                 </li>
 
                 <li className="nav-item">
-                    <Link to="/movie/2/likes/3" exact={true} className="nav-link">
+                    <Link to="/movie/2/likes/3" exact="true" className="nav-link">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Movie 2</span>
                     </Link>

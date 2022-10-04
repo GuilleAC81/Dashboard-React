@@ -1,5 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import ActorsList from './ActorsList';
+import ActorsHeader from './ActorsHeader';
 
 class Actors extends Component{
 	
@@ -31,22 +32,12 @@ class Actors extends Component{
 						<div className="card shadow mb-4">
 							<div className="card-body">
 								<div className="table-responsive">
-									<table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-										<thead>
-											<tr>
-												<th>Id</th>
-												<th>Nombre</th>
-												<th>Apellido</th>
-												<th>Rating</th>
-											</tr>
+									<table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
+										<thead>											
+											<ActorsHeader/>											
 										</thead>
-										<tfoot>
-											<tr>
-												<th>Id</th>
-												<th>Nombre</th>
-												<th>Apellido</th>
-												<th>Rating</th>
-											</tr>
+										<tfoot>											
+											<ActorsHeader/>											
 										</tfoot>
 										<tbody>
 										{

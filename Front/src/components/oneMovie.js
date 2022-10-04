@@ -2,8 +2,7 @@ import React, {Fragment, Component} from 'react';
 import MovieList from './MovieList';
 import MovieHeader from './MovieHeader';
 
-
-class Movie extends Component{
+class oneMovie extends Component{
 	
     constructor(){
         super()
@@ -13,23 +12,24 @@ class Movie extends Component{
     };
 
 	componentDidMount(){
-	
+		let id = this.props.params.id
 		fetch('/api/movies')
         .then(respuesta =>{
         return respuesta.json()
         })
         .then(movies =>{
-        this.setState({moviesList: movies.data})
+			let movie = movies.data.filter(function(oneMovie){
+				return oneMovie.id  === id})
+        this.setState({moviesList: movie})
         })
         .catch(error => console.log(error))
         }
-		
+
 	render(){
-		
 		return(
 			<Fragment>
 						{/*<!-- PRODUCTS LIST -->*/}
-						<h1 className="h3 mb-2 text-gray-800">All the movies in the Database</h1>
+						<h1 className="h3 mb-2 text-gray-800">Detail for selected Movie</h1>
 						
 						{/*<!-- DataTales Example -->*/}
 						<div className="card shadow mb-4">
@@ -37,11 +37,9 @@ class Movie extends Component{
 								<div className="table-responsive">
 									<table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
 										<thead>
-											<MovieHeader/>
+											<MovieHeader/>								
 										</thead>
-										<tfoot>
-											<MovieHeader/>
-										</tfoot>
+
 										<tbody>
 										{
 											this.state.moviesList.map((item, i) => {
@@ -58,4 +56,4 @@ class Movie extends Component{
 	}
     
 }
-export default Movie;
+export default oneMovie;
